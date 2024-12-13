@@ -1,0 +1,65 @@
+.animeCalendarCard {
+    position: relative;
+    height: 100%;
+    background: center 25% no-repeat;
+    background-size: cover;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 0.4rem;
+    aspect-ratio: 5/2;
+    border-color: var(--tertiary);
+    background-color: var(--tertiary);
+}
+
+.animeCalendarCard .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.animeCalendarCard .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+}
+
+.animeCalendarCard .content h2 {
+    font-size: 0.8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.animeCalendarCard .content span {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: hsla(0, 0%, 98%, 0.75);
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.animeCalendarCard .content span b {
+    margin-left: 0.2rem;
+    color: var(--white-color);
+}
+
+@media screen and (min-width: 360px) and (max-width: 490px) {
+    .animeCalendarCard .content {
+        padding: 0.5rem;
+    }
+
+    .animeCalendarCard {
+        aspect-ratio: 3/2;
+    }
+
+    .animeCalendarCard .content span {
+        font-size: 0.5rem;
+    }
+}

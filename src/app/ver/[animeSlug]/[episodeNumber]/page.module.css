@@ -1,0 +1,94 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container .infoLanguaje {
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-left: 2px solid var(--primary-color);
+    text-transform: uppercase;
+}
+
+.container .playerContainer {
+    position: relative;
+}
+
+.container .playerContainer .bottomPlayer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .container .playerContainer .bottomPlayer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'second'
+            'first';
+        gap: 1rem;
+    }
+}
+
+.container .playerContainer .bottomPlayer .infoCap {
+    display: flex;
+    gap: 1rem;
+    grid-area: first;
+}
+
+.container .playerContainer .bottomPlayer .infoCap a {
+    transition: color 0.2s ease-in-out;
+}
+
+.container .playerContainer .bottomPlayer .infoCap a:hover {
+    color: var(--primary-color);
+}
+
+.container .playerContainer .bottomPlayer .infoCap a h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.container .playerContainer .bottomPlayer .infoCap p {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--gray-color);
+}
+
+.container .playerContainer .bottomPlayer .navCaps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    grid-area: second;
+}
+
+.container .playerContainer .bottomPlayer .navCaps a {
+    cursor: pointer;
+    color: var(--gray-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0.5rem;
+    white-space: nowrap;
+    transition: color 0.2s ease-in-out;
+}
+
+.container .playerContainer .bottomPlayer .navCaps a:hover,
+.container .playerContainer .bottomPlayer .navCaps a:hover svg {
+    color: var(--primary-color);
+    fill: var(--primary-color);
+}
+
+.container .playerContainer .bottomPlayer .navCaps a svg {
+    fill: var(--gray-color);
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: fill 0.2s ease-in-out;
+}

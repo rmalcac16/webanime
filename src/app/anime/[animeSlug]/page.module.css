@@ -1,0 +1,250 @@
+.animeContainer {
+    position: relative;
+}
+
+.animeContainer .banner {
+    position: relative;
+    height: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 10%;
+    z-index: 1;
+}
+
+.animeContainer .banner .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    display: none;
+}
+
+.animeContainer .banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, hsla(0, 0%, 9%, 0.2), var(--tertiary));
+}
+
+.animeContainer .animeInfoContainer {
+    position: relative;
+    max-width: 1250px;
+    margin: 0 auto;
+    margin-top: -15rem;
+    z-index: 2;
+    display: flex;
+}
+
+.animeContainer .animeInfoContainer .animeInfoLeft {
+    position: relative;
+    max-width: 25%;
+}
+
+.animeContainer .animeInfoContainer .animeInfoLeft .cover {
+    aspect-ratio: 9/14;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.animeContainer .animeInfoContainer .animeInfoLeft .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.animeContainer .animeInfoContainer .animeInfoLeft .animeDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.animeContainer
+    .animeInfoContainer
+    .animeInfoLeft
+    .animeDetails
+    .animeDetailItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.7rem;
+}
+
+.animeContainer
+    .animeInfoContainer
+    .animeInfoLeft
+    .animeDetails
+    .animeDetailItem
+    span {
+    color: var(--gray-color);
+    font-weight: 400;
+    font-size: 0.6rem;
+}
+
+.animeContainer
+    .animeInfoContainer
+    .animeInfoLeft
+    .animeDetails
+    .animeDetailItem
+    small
+    svg {
+    fill: #fbbd08 !important;
+    margin-right: 0.5em;
+    width: 0.65rem;
+    height: 0.65rem;
+}
+
+.animeContainer
+    .animeInfoContainer
+    .animeInfoLeft
+    .animeDetails
+    .animeDetailItem
+    small {
+    text-align: right;
+    display: flex;
+    align-items: center;
+}
+
+.animeContainer .animeInfoContainer .animeInfoRight {
+    flex: 1;
+    max-width: 75%;
+    padding-left: 2rem;
+    margin-top: 8rem;
+}
+
+.animeContainer .animeInfoContainer .animeInfoRight h1 {
+    font-weight: 700;
+    margin-bottom: 0.75em;
+}
+
+.animeContainer .animeInfoContainer .animeInfoRight .genres {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.animeContainer .animeInfoContainer .animeInfoRight .genres a {
+    transition: all 0.3s ease-in-out;
+    color: #b9b9b9;
+    border: 1px solid;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    padding: 0.45rem 0.7rem;
+    margin-right: 0.5rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.animeContainer .animeInfoContainer .animeInfoRight .genres a:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background-color: var(--primary-color);
+}
+
+.animeContainer .animeInfoContainer .animeInfoRight .overview {
+    font-size: 0.8rem;
+    color: var(--gray-color);
+    padding-top: 2rem;
+}
+
+.animeContainer .animeInfoContainer .animeInfoRight .episodeList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+@media screen and (min-width: 1920px) {
+    .animeContainer .banner {
+        height: 650px;
+    }
+    .animeContainer .animeInfoContainer {
+        max-width: 1600px;
+        margin-top: -20rem;
+    }
+
+    .animeContainer .animeInfoContainer .animeInfoRight {
+        margin-top: 13rem;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .animeContainer .banner {
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .animeContainer .animeInfoContainer {
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .animeContainer .banner .title {
+        display: block;
+    }
+
+    .animeContainer.animeInfoContainer {
+        padding: 0 1rem;
+    }
+
+    .animeContainer .animeInfoContainer .animeInfoLeft,
+    .animeContainer .animeInfoContainer .animeInfoRight {
+        max-width: 100%;
+    }
+
+    .animeContainer .animeInfoContainer .animeInfoRight {
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    .animeContainer .animeInfoContainer .animeInfoRight .overview {
+        padding-top: 1rem;
+    }
+
+    .animeContainer .banner {
+        height: 250px;
+    }
+
+    .animeContainer .banner .title h1 {
+        font-size: 1.4rem;
+    }
+
+    .animeContainer .animeInfoContainer .animeInfoRight > h1 {
+        display: none;
+    }
+    .animeContainer .animeInfoContainer .animeInfoRight .genres {
+        margin: 1rem 0;
+    }
+
+    .animeContainer .animeInfoContainer {
+        padding: 0 1rem;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+    .animeContainer .animeInfoContainer .animeInfoLeft .cover {
+        display: none;
+    }
+
+    .animeContainer .animeInfoContainer .animeInfoRight .episodeList {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 490px) {
+    .animeContainer .animeInfoContainer .animeInfoRight .episodeList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,29 @@
+.paginate {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.paginate .item {
+    padding: 0.7rem;
+    justify-content: center;
+    min-width: 3em;
+    text-align: center;
+    color: var(--gray-color);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.paginate .item.active {
+    border-radius: 100%;
+    color: var(--white-color);
+    background-color: var(--tertiary);
+}
+
+.paginate .item svg {
+    fill: var(--gray-color);
+    width: 24px;
+    height: 24px;
+    margin: 0;
+}
