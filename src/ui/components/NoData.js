@@ -1,4 +1,4 @@
-import styles from './NoData.module.css';
+import styles from './noData.module.css';
 
 export default function NoData({
     title = '¡Ups! No pudimos encontrar lo que estás buscando',
