@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 
 import styles from './filters.module.css';
+import { getYearNow } from '@/helpers/dateUtils';
 
 export default function Filters({ params }) {
     const router = useRouter();
@@ -27,8 +28,9 @@ export default function Filters({ params }) {
                     <option value="">Todos</option>
                     <option value="tv">Animes</option>
                     <option value="movie">Películas</option>
-                    <option value="especial">Especiales</option>
+                    <option value="special">Especiales</option>
                     <option value="ova">OVA</option>
+                    <option value="ona">ONA</option>
                 </select>
             </div>
             <div className={styles.filter}>
@@ -52,8 +54,8 @@ export default function Filters({ params }) {
                 >
                     <option value="">Todos</option>
                     {Array.from({ length: 50 }, (_, i) => (
-                        <option key={i} value={2024 - i}>
-                            {2024 - i}
+                        <option key={i} value={getYearNow() - i}>
+                            {getYearNow() - i}
                         </option>
                     ))}
                 </select>

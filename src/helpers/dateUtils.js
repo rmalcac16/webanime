@@ -3,6 +3,10 @@ import 'moment/locale/es';
 
 moment.locale('es');
 
+export function getYearNow() {
+    return moment().year();
+}
+
 export function getDateFromNow(date) {
     return moment(date).fromNow();
 }
