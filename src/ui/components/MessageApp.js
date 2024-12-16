@@ -2,17 +2,25 @@
 
 import { useState, useEffect } from 'react';
 import styles from './messageApp.module.css';
+import { isMobile } from '@/helpers/isMobile';
 
 export default function MessageApp() {
     const [showMessage, setShowMessage] = useState(false);
 
     useEffect(() => {
-        const lastShown = localStorage.getItem('messageLastShown');
-        const today = new Date().toISOString().split('T')[0];
+        // Obtener el user-agent desde el cliente
+        const userAgent =
+            navigator.userAgent || navigator.vendor || window.opera;
 
-        if (lastShown !== today) {
-            setShowMessage(true);
-            localStorage.setItem('messageLastShown', today);
+        // Verificar si es un dispositivo móvil
+        if (isMobile(userAgent)) {
+            const lastShown = localStorage.getItem('messageLastShown');
+            const today = new Date().toISOString().split('T')[0];
+
+            if (lastShown !== today) {
+                setShowMessage(true);
+                localStorage.setItem('messageLastShown', today);
+            }
         }
     }, []);
 
@@ -44,6 +52,7 @@ export default function MessageApp() {
                                 }
                                 alt={'Descargar APP'}
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 Directa
                             </a>
@@ -53,6 +62,7 @@ export default function MessageApp() {
                                 href={'https://www.kawaiianimes.app/'}
                                 alt={'Descargar APP'}
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 Pagina Oficial
                             </a>

@@ -46,7 +46,10 @@ export default async function Page() {
                 ) : (
                     <div className="listEpisode">
                         {data.episodes.map((episode) => (
-                            <EpisodeCard key={episode.id} episode={episode} />
+                            <EpisodeCard
+                                key={`${episode.slug}_${episode.number}`}
+                                episode={episode}
+                            />
                         ))}
                     </div>
                 )}

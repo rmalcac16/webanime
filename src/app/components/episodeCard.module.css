@@ -130,3 +130,13 @@
     align-items: center;
     padding-left: 0.5rem;
 }
+
+@media screen and (min-width: 1600px) {
+    .episodeCard .episodeInfo h2 {
+        font-size: 1.1rem;
+    }
+
+    .episodeCard .episodeInfo span {
+        font-size: 1rem;
+    }
+}

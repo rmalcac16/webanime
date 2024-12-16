@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation'; // Para la navegación programática
 import axios from 'axios';
 import styles from './search.module.css';
 import AnimeSearch from '@/app/components/AnimeSearch';
@@ -12,6 +13,8 @@ export default function Search() {
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const [debouncedQuery, setDebouncedQuery] = useState(query);
+
+    const router = useRouter(); // Instancia del router
 
     let cancelTokenSource = null;
 
@@ -79,10 +82,22 @@ export default function Search() {
         }
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Evita el comportamiento por defecto del Enter
+            if (query.length >= 3) {
+                if (cancelTokenSource) {
+                    cancelTokenSource.cancel(); // Cancela la búsqueda activa
+                }
+                router.push(`/animes?search=${encodeURIComponent(query)}`);
+            }
+        }
+    };
+
     return (
         <div className={styles.searchContainer}>
             <svg onClick={toggleSearch} viewBox="0 0 24 24">
-                <path d="M13.262,14.868l2.479,2.478c-0.376,0.725-0.415,1.445-0.017,1.843l4.525,4.526 c0.571,0.571,1.812,0.257,2.768-0.7c0.956-0.955,1.269-2.195,0.697-2.766l-4.524-4.526c-0.399-0.398-1.119-0.36-1.842,0.016 l-2.48-2.478L13.262,14.868z M8.5,0C3.806,0,0,3.806,0,8.5C0,13.194,3.806,17,8.5,17S17,13.194,17,8.5C17,3.806,13.194,0,8.5,0z M8.5,15C4.91,15,2,12.09,2,8.5S4.91,2,8.5,2S15,4.91,15,8.5S12.09,15,8.5,15z"></path>
+                <path d="M13.262,14.868l2.479,2.478c-0.376,0.725-0.415,1.445-0.017,1.843l4.525,4.526 c0.571,0.571,1.812,0.257,2.768-0.7c0.956-0.955,1.269-2.195,0.697-2.766l-4.524-4.526c-0.399-0.398-1.119-0.36-1.842,0.016 l-2.48-2.478L13.262,14.868z M8.5,0C3.806,0,0,3.806,0,8.5C0,13.194,3.806,17,8.5,17S17,13.194,13.194,8.5C17,3.806,13.194,0,8.5,0z M8.5,15C4.91,15,2,12.09,2,8.5S4.91,2,8.5,2S15,4.91,15,8.5S12.09,15,8.5,15z"></path>
             </svg>
             {isVisible && (
                 <>
@@ -95,7 +110,9 @@ export default function Search() {
                                 type="text"
                                 placeholder="Buscar..."
                                 autoComplete="on"
+                                value={query}
                                 onChange={(e) => setQuery(e.target.value)}
+                                onKeyDown={handleKeyDown} // Maneja el evento de Enter
                             />
                         </div>
                         <div className={styles.close}>

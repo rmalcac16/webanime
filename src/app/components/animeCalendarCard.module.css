@@ -63,3 +63,12 @@
         font-size: 0.5rem;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    .animeCalendarCard .content h2 {
+        font-size: 1.2rem;
+    }
+    .animeCalendarCard .content span {
+        font-size: 0.8rem;
+    }
+}

@@ -8,6 +8,7 @@
     height: 100%;
     border: none;
     background: var(--tertiary);
+    overflow: hidden;
 }
 
 .playerContainer .options {

@@ -6,6 +6,7 @@ import EpisodeCard from '@/app/components/episodeCard';
 import { getAnimeLink, getGenreLink } from '@/helpers/linkUtils';
 import NoData from '@/ui/components/NoData';
 import { ProgressBarLink } from '@/ui/components/progress-bar';
+import AnimeEpisodes from './AnimeEpisodes';
 
 export const revalidate = 60;
 
@@ -128,18 +129,13 @@ export default async function Page({ params }) {
                                 ))}
                         </div>
                         <p className={styles.overview}>{data.overview}</p>
-                        <div className={styles.episodeList}>
-                            {data.episodes &&
-                                data.episodes.map((episode) => (
-                                    <EpisodeCard
-                                        key={episode.id}
-                                        episode={episode}
-                                        animeName={data.name}
-                                        animeSlug={animeSlug}
-                                        animeBanner={data.banner}
-                                    />
-                                ))}
-                        </div>
+
+                        <AnimeEpisodes
+                            episodes={data.episodes}
+                            animeName={data.name}
+                            animeSlug={animeSlug}
+                            animeBanner={data.banner}
+                        />
                     </div>
                 </div>
             </div>

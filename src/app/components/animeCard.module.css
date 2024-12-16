@@ -77,4 +77,15 @@
 .animeCard small {
     font-size: 0.6rem;
     color: var(--gray-color);
+    padding-top: 0.25rem;
+}
+
+@media screen and (min-width: 1600px) {
+    .animeCard h2 {
+        font-size: 1.1rem;
+    }
+    .animeCard small {
+        font-size: 0.9rem;
+        margin-top: 0.4rem;
+    }
 }

@@ -36,6 +36,7 @@
     margin-top: -15rem;
     z-index: 2;
     display: flex;
+    padding-bottom: 4rem;
 }
 
 .animeContainer .animeInfoContainer .animeInfoLeft {
@@ -121,6 +122,9 @@
 .animeContainer .animeInfoContainer .animeInfoRight h1 {
     font-weight: 700;
     margin-bottom: 0.75em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .animeContainer .animeInfoContainer .animeInfoRight .genres {
@@ -158,14 +162,7 @@
     padding-top: 2rem;
 }
 
-.animeContainer .animeInfoContainer .animeInfoRight .episodeList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1600px) {
     .animeContainer .banner {
         height: 650px;
     }
@@ -175,7 +172,38 @@
     }
 
     .animeContainer .animeInfoContainer .animeInfoRight {
-        margin-top: 13rem;
+        margin-top: 12rem;
+    }
+    .animeContainer .animeInfoContainer .animeInfoRight .episodeList {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .animeContainer .animeInfoContainer .animeInfoLeft .animeDetails {
+        gap: 0.4rem;
+    }
+    .animeContainer
+        .animeInfoContainer
+        .animeInfoLeft
+        .animeDetails
+        .animeDetailItem
+        span {
+        font-size: 0.8rem;
+    }
+    .animeContainer
+        .animeInfoContainer
+        .animeInfoLeft
+        .animeDetails
+        .animeDetailItem
+        small {
+        font-size: 0.8rem;
+    }
+    .animeContainer .animeInfoContainer .animeInfoRight h1 {
+        font-size: 2.5rem;
+    }
+    .animeContainer .animeInfoContainer .animeInfoRight .overview {
+        font-size: 1.2rem;
+    }
+    .animeContainer .animeInfoContainer .animeInfoRight .genres a {
+        font-size: 1rem;
     }
 }
 
@@ -231,20 +259,11 @@
 
     .animeContainer .animeInfoContainer {
         padding: 0 1rem;
+        padding-bottom: 2.5rem;
         flex-direction: column;
         margin-top: 1rem;
     }
     .animeContainer .animeInfoContainer .animeInfoLeft .cover {
         display: none;
-    }
-
-    .animeContainer .animeInfoContainer .animeInfoRight .episodeList {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    }
-}
-
-@media screen and (min-width: 360px) and (max-width: 490px) {
-    .animeContainer .animeInfoContainer .animeInfoRight .episodeList {
-        grid-template-columns: repeat(2, 1fr);
     }
 }

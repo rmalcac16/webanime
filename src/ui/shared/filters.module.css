@@ -55,3 +55,12 @@
         min-width: 0;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    .filters .filter label {
+        font-size: 1.1rem;
+    }
+    .filters .filter select {
+        font-size: 1rem;
+    }
+}

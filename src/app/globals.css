@@ -147,12 +147,6 @@ main h1.title span {
     }
 }
 
-@media screen and (min-width: 1440px) {
-    .listEpisode {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-
 @media screen and (min-width: 360px) and (max-width: 490px) {
     .listEpisode {
         grid-template-columns: repeat(2, 1fr);
@@ -162,5 +156,17 @@ main h1.title span {
     }
     .calendar .calendarData {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    main {
+        padding-top: 5.5rem;
+    }
+    main h1.title {
+        font-size: 1.4rem;
+    }
+    .listEpisode {
+        grid-template-columns: repeat(6, 1fr);
     }
 }

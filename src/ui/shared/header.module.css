@@ -136,3 +136,12 @@
         display: none;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    .header .logo {
+        font-size: 1.2rem;
+    }
+    .header nav ul li a {
+        font-size: 1.1rem;
+    }
+}
