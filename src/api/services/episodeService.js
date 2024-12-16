@@ -4,7 +4,7 @@ export const getReleases = async () => {
     try {
         const response = await fetch(`${process.env.API_BASE_URL}/releases`, {
             cache: 'force-cache',
-            next: { revalidate: 60 },
+            next: { revalidate: 5 },
         });
 
         if (!response.ok) {

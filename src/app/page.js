@@ -31,7 +31,7 @@ export const metadata = {
     ],
 };
 
-export const revalidate = 60;
+export const revalidate = 5;
 
 export default async function Page() {
     try {
@@ -61,7 +61,7 @@ export default async function Page() {
                 ) : (
                     <div className="listAnime">
                         {data.animes.map((anime) => (
-                            <AnimeCard key={anime.id} anime={anime} />
+                            <AnimeCard key={`${anime.slug}`} anime={anime} />
                         ))}
                     </div>
                 )}
