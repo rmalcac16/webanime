@@ -132,7 +132,7 @@ export const getAnimesCalendario = async () => {
             `${process.env.API_BASE_URL}/anime/simulcast`,
             {
                 cache: 'force-cache',
-                next: { revalidate: 60 },
+                next: { revalidate: 5 },
             }
         );
 

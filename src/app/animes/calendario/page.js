@@ -3,7 +3,7 @@ import AnimeCalendarCard from '@/app/components/AnimeCalendarCard';
 import { getOrderedDays } from '@/helpers/strings';
 import NoData from '@/ui/components/NoData';
 
-export const revalidate = 60;
+export const revalidate = 5;
 
 export const metadata = {
     title: `Calendario de animes • ${process.env.APP_NAME}`,
