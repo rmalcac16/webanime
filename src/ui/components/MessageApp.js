@@ -8,7 +8,6 @@ export default function MessageApp() {
     const [showMessage, setShowMessage] = useState(false);
 
     useEffect(() => {
-        // Obtener el user-agent desde el cliente
         const userAgent =
             navigator.userAgent || navigator.vendor || window.opera;
 
@@ -23,17 +22,18 @@ export default function MessageApp() {
     }, []);
 
     const handleClose = () => {
-        localStorage.setItem('messageInteracted', 'true');
         setShowMessage(false);
     };
 
     const handleDownloadClick = () => {
         const today = new Date().toISOString().split('T')[0];
         localStorage.setItem('messageLastShown', today);
-        setShowMessage(false); // Opcional: cerrar modal tras clic
+        setShowMessage(false);
     };
 
-    if (!showMessage) return null;
+    if (!showMessage) {
+        return null;
+    }
 
     return (
         <div className={styles.modal}>
@@ -50,24 +50,20 @@ export default function MessageApp() {
                     <div className={styles.buttons}>
                         <div className={styles.button}>
                             <a
-                                href={
-                                    'https://github.com/animelhd/kawaii-animes/raw/main/app-release.apk'
-                                }
-                                alt={'Descargar APP'}
+                                href="https://github.com/animelhd/kawaii-animes/raw/main/app-release.apk"
+                                onClick={handleDownloadClick}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={handleClose}
                             >
                                 Directa
                             </a>
                         </div>
                         <div className={styles.button}>
                             <a
-                                href={'https://www.kawaiianimes.app/'}
-                                alt={'Descargar APP'}
+                                href="https://www.kawaiianimes.app/"
+                                onClick={handleDownloadClick}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={handleClose}
                             >
                                 Página Oficial
                             </a>
