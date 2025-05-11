@@ -8,24 +8,28 @@ export default function MessageApp() {
     const [showMessage, setShowMessage] = useState(false);
 
     useEffect(() => {
-        // Obtener el user-agent desde el cliente
         const userAgent =
             navigator.userAgent || navigator.vendor || window.opera;
 
-        // Verificar si es un dispositivo móvil
         if (isMobile(userAgent)) {
             const lastShown = localStorage.getItem('messageLastShown');
             const today = new Date().toISOString().split('T')[0];
 
+            // Mostrar el mensaje solo si no se ha hecho clic de descarga hoy
             if (lastShown !== today) {
                 setShowMessage(true);
-                localStorage.setItem('messageLastShown', today);
             }
         }
     }, []);
 
     const handleClose = () => {
         setShowMessage(false);
+    };
+
+    const handleDownloadClick = () => {
+        const today = new Date().toISOString().split('T')[0];
+        localStorage.setItem('messageLastShown', today);
+        setShowMessage(false); // Opcional: cerrar modal tras clic
     };
 
     if (!showMessage) {
@@ -47,10 +51,8 @@ export default function MessageApp() {
                     <div className={styles.buttons}>
                         <div className={styles.button}>
                             <a
-                                href={
-                                    'https://github.com/animelhd/kawaii-animes/raw/main/app-release.apk'
-                                }
-                                alt={'Descargar APP'}
+                                href="https://github.com/animelhd/kawaii-animes/raw/main/app-release.apk"
+                                onClick={handleDownloadClick}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -59,12 +61,12 @@ export default function MessageApp() {
                         </div>
                         <div className={styles.button}>
                             <a
-                                href={'https://www.kawaiianimes.app/'}
-                                alt={'Descargar APP'}
+                                href="https://www.kawaiianimes.app/"
+                                onClick={handleDownloadClick}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Pagina Oficial
+                                Página Oficial
                             </a>
                         </div>
                     </div>
