@@ -21,7 +21,6 @@ export default function RootLayout({ children }) {
             <head>
                 {process.env.NODE_ENV === 'production' && (
                     <>
-                        <Script src="/popAds.js" />
                         <Script id="chatBroEmbedCode" src="/chat.js" />
                         <script
                             dangerouslySetInnerHTML={{
