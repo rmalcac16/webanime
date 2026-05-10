@@ -1,7 +1,11 @@
 import CryptoJS from 'crypto-js';
 
 const LaravelEncrypt = function (key) {
-    this.key = process.env.API_ENCRYPTION_KEY || key;
+    let finalKey = process.env.API_ENCRYPTION_KEY || key;
+    if (finalKey && finalKey.startsWith('base64:')) {
+        finalKey = finalKey.substring(7);
+    }
+    this.key = finalKey;
 };
 
 LaravelEncrypt.prototype.decrypt = function (encryptStr) {

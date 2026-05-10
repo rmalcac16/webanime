@@ -12,9 +12,11 @@ export const getReleases = async () => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : { episodes: [], animes: [] };
     } catch (error) {
-        throw error;
+        console.error('Error fetching releases:', error);
+        return { episodes: [], animes: [] };
     }
 };
 
@@ -33,8 +35,10 @@ export const getEpisodeInfo = async (slug, episodeNumber) => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : null;
     } catch (error) {
-        throw error;
+        console.error('Error fetching episode info:', error);
+        return null;
     }
 };

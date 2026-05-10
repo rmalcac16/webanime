@@ -15,9 +15,11 @@ export const getAllAnimes = async (params = {}) => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : { data: [], last_page: 1 };
     } catch (error) {
-        throw error;
+        console.error('Error fetching animes:', error);
+        return { data: [], last_page: 1 };
     }
 };
 
@@ -36,9 +38,11 @@ export const getAnimeById = async (slug) => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : null;
     } catch (error) {
-        throw error;
+        console.error('Error fetching anime by ID:', error);
+        return null;
     }
 };
 
@@ -57,9 +61,11 @@ export const getMostViewedAnimes = async () => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : { being_watched: [] };
     } catch (error) {
-        throw error;
+        console.error('Error fetching most viewed animes:', error);
+        return { being_watched: [] };
     }
 };
 
@@ -78,9 +84,11 @@ export const getPopularAnimes = async () => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : { popular_today: [] };
     } catch (error) {
-        throw error;
+        console.error('Error fetching popular animes:', error);
+        return { popular_today: [] };
     }
 };
 
@@ -99,9 +107,11 @@ export const getAnimesCastellano = async () => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : [];
     } catch (error) {
-        throw error;
+        console.error('Error fetching castellano animes:', error);
+        return [];
     }
 };
 
@@ -120,9 +130,11 @@ export const getAnimesLatino = async () => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : [];
     } catch (error) {
-        throw error;
+        console.error('Error fetching latino animes:', error);
+        return [];
     }
 };
 
@@ -141,8 +153,10 @@ export const getAnimesCalendario = async () => {
         }
 
         const data = await response.json();
-        return JSON.parse(decryptString(data.data));
+        const decrypted = decryptString(data.data);
+        return decrypted ? JSON.parse(decrypted) : {};
     } catch (error) {
-        throw error;
+        console.error('Error fetching calendar animes:', error);
+        return {};
     }
 };
