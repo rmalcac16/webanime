@@ -2,6 +2,7 @@ import { getReleases } from '@/api/services/episodeService';
 import NoData from '@/ui/components/NoData';
 import AnimeCard from './components/AnimeCard';
 import EpisodeCard from './components/episodeCard';
+import SecurityModal from '@/ui/components/SecurityModal';
 
 export const metadata = {
     title: `Ver Anime Online en HD Sub Español Latino Gratis • ${process.env.APP_NAME}`,
@@ -38,6 +39,7 @@ export default async function Page() {
         const data = await getReleases();
         return (
             <main>
+                <SecurityModal />
                 <h1 className="title">
                     <span>Episodios Recientes</span>
                 </h1>
@@ -70,6 +72,7 @@ export default async function Page() {
     } catch (error) {
         return (
             <main>
+                <SecurityModal />
                 <NoData />
             </main>
         );
