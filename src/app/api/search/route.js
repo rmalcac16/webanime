@@ -17,9 +17,14 @@ export async function GET(request) {
         const response = await axios.get(
             `${process.env.API_BASE_URL}/anime/search?search=${query}`
         );
-        const decryptedData = JSON.parse(decryptString(response.data.data));
+        const decrypted = decryptString(response.data.data);
+        if (!decrypted) {
+            throw new Error('Failed to decrypt search data');
+        }
+        const decryptedData = JSON.parse(decrypted);
         return NextResponse.json(decryptedData);
     } catch (error) {
+        console.error('Search API error:', error);
         return NextResponse.json(
             { error: 'Error al procesar la solicitud' },
             { status: 500 }
