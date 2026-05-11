@@ -12,14 +12,28 @@ export default function SecurityModal() {
         <div className={styles.overlay}>
             <div className={styles.modal}>
                 <div className={styles.iconWrapper}>
-                    ⚠️
+                    <span className={styles.icon}>⚠️</span>
                 </div>
-                <h2 className={styles.title}>AVISO IMPORTANTE DE SEGURIDAD</h2>
-                <p className={styles.text}>
-                    Queremos informarles con total transparencia que nuestra plataforma ha sufrido un incidente de seguridad que resultó en un acceso no autorizado a nuestra base de datos. Admitimos con total responsabilidad que nuestras prácticas y medidas de ciberseguridad previas no fueron lo suficientemente robustas para prevenir esta vulneración, comprometiendo cierta información de usuario. Actualmente, estamos trabajando intensamente para asegurar toda nuestra infraestructura y profesionalizar nuestras defensas para evitar que esto se repita en el futuro. Les recomendamos encarecidamente cambiar sus contraseñas por precaución mientras terminamos de estabilizar el servicio. Agradecemos su lealtad y comprensión ante este desafío.
-                </p>
+                <h2 className={styles.title}>Aviso Importante</h2>
+                <div className={styles.text}>
+                    <p>
+                        Estamos teniendo un problema crítico con la <strong>sincronización de preferencias</strong> (animes guardados y seguimiento). 
+                        Las sesiones pueden haberse cerrado y la información podría no aparecer correctamente.
+                    </p>
+                    <p>
+                        No ha sido posible recuperar estos datos desde el servidor, pero es posible que parte de la información aún resida 
+                        <strong> localmente en tu dispositivo</strong>.
+                    </p>
+                    <p>
+                        <strong>Tu ayuda es vital:</strong> Si aún tienes la sesión iniciada, <strong>no desinstales la aplicación</strong> ni borres los datos. 
+                        Si tu sesión se cerró, intenta no iniciar sesión repetidamente por ahora.
+                    </p>
+                    <p>
+                        Estamos trabajando sin descanso para recuperar la mayor cantidad de información posible. Gracias por tu paciencia.
+                    </p>
+                </div>
                 <button className={styles.button} onClick={() => setIsOpen(false)}>
-                    De acuerdo
+                    Entendido, mantendré mi sesión
                 </button>
             </div>
         </div>
